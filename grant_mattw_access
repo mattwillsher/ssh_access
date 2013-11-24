@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-[[ $( id -u ) == 0 ]] || echo "Needs to be run as root" && exit 1
+[[ $( id -u ) == 0 ]] || ( echo "Needs to be run as root" && exit 1 )
 
-id mattw >/dev/null 2>&1 || ( /usr/sbin/useradd -c 'Matt Willsher' -m mattw )
+id mattw >/dev/null 2>&1 || /usr/sbin/useradd -c 'Matt Willsher' -m mattw 
 cat >/etc/sudoers.d/mattw-ALL <<EOF
 mattw     ALL=(ALL:ALL) NOPASSWD: ALL
 EOF
