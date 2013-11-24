@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+id mattw >/dev/null 2>&1 || /usr/sbin/useradd -c 'Matt Willsher' -m mattw
+cat >/etc/sudoers.d/mattw-ALL <<EOF
+mattw     ALL=(ALL:ALL) NOPASSWD: ALL
+EOF
+[[ -d ~mattw/.ssh ]] || mkdir -p ~mattw/.ssh
+chmod 700 ~mattw/.ssh
+cat $( readlink -m $( dirname $0 ) )/mattw_ssh_pub_key >~mattw/.ssh/authorized_keys
+chmod 400 ~mattw/.ssh/authorized_keys
+chown -R mattw ~mattw/.ssh
+
