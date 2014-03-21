@@ -4,6 +4,7 @@
 cat >/etc/sudoers.d/mattw-ALL <<EOF
 mattw     ALL=(ALL:ALL) NOPASSWD: ALL
 EOF
+chmod 0440 /etc/sudoers.d/mattw-ALL
 mkdir ~mattw/.ssh
 chmod 700 ~mattw/.ssh
 curl https://raw.githubusercontent.com/mattwillsher/ssh_access/master/mattw_ssh_pub_key >~mattw/.ssh/authorized_keys
