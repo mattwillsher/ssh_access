@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
+set -e
+
 MY_SHELL=$( which bash )
 
-/usr/sbin/useradd -c 'Matt Willsher <matt at willsherpartners.co.uk>' -s ${MY_SHELL} -m mattw
+/usr/sbin/useradd -c 'Matt Willsher,,matt@willsher.systems,' -s ${MY_SHELL} -m mattw
 cat >/etc/sudoers.d/mattw-ALL <<EOF
 mattw     ALL=(ALL:ALL) NOPASSWD: ALL
 EOF
